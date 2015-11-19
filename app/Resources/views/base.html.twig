@@ -1,13 +1,26 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}{% endblock %}</title>
+    {% block stylesheets %}
+
+        <link href="{{ asset('bundles/base/bootstrap/css/bootstrap.css') }}" rel="stylesheet" type="text/css"/>
+        <link href="{{ asset('bundles/base/bootstrap/css/bootstrap-theme.css') }}" rel="stylesheet" type="text/css"/>
+        <link href="{{ asset('bundles/base/other/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css"/>
+        <link href="{{ asset('bundles/base/theme/css/AdminLTE.css') }}" rel="stylesheet" type="text/css"/>
+
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+</head>
+<body>
+{% block body %}{% endblock %}
+{% block javascripts %}
+
+    <script src="{{ asset('bundles/base/bootstrap/js/bootstrap.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('bundles/base/other/js/jquery.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('bundles/base/bootstrap/js/npm.js') }}" type="text/javascript"></script>
+
+{% endblock %}
+</body>
 </html>
