@@ -1,0 +1,15 @@
+base_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: BaseBundle:Default:index }
+
+home_redirect:
+    path:   /
+    defaults:   { _controller: BaseBundle:Default:home_redirect }
+
+home:
+    path:   /home
+    defaults:   { _controller: BaseBundle:Default:home }
+
+about:
+    path:   /about
+    defaults:   { _controller: BaseBundle:Default:about }
