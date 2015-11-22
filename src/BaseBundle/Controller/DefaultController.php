@@ -8,7 +8,7 @@ class DefaultController extends Controller
 {
     public function indexAction($name)
     {
-        return $this->render('BaseBundle:Default:index.html.twig', array('name' => $name));
+        return $this->render('BaseBundle:Default:main.html.twig', array('name' => $name));
     }
 
     public function home_redirectAction()

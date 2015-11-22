@@ -1,8 +1,12 @@
-.navbar-fixed-top{
+.navbar-fixed-top {
     background-color: whitesmoke;
 }
 
-.body-container{
+.body-container {
     position: relative;
     top: 50px;
+}
+
+#telephone:hover {
+    background-color: whitesmoke;
 }

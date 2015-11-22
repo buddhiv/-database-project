@@ -1,0 +1,7 @@
+#application_homepage:
+#    path:     /hello/{name}
+#    defaults: { _controller: ApplicationBundle:Parent:index }
+
+parent_new_application:
+    path:   /parent/new_application
+    defaults:   { _controller: ApplicationBundle:Default:new_application }
