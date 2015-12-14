@@ -4,7 +4,7 @@ base_homepage:
 
 home_redirect:
     path:   /
-    defaults:   { _controller: BaseBundle:Default:home_redirect }
+    defaults:   { _controller: BaseBundle:Default:homeRedirect }
 
 home:
     path:   /home

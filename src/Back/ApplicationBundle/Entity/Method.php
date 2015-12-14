@@ -1,0 +1,35 @@
+<?php
+
+namespace Back\ApplicationBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Method
+ *
+ * @ORM\Table(name="method")
+ * @ORM\Entity
+ */
+class Method
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="method_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $methodId;
+
+
+
+    /**
+     * Get methodId
+     *
+     * @return integer
+     */
+    public function getMethodId()
+    {
+        return $this->methodId;
+    }
+}

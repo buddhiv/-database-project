@@ -1,0 +1,64 @@
+<?php
+
+namespace Back\ApplicationBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ResidentMethod
+ *
+ * @ORM\Table(name="resident_method")
+ * @ORM\Entity
+ */
+class ResidentMethod
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="resident_id", type="integer", nullable=false)
+     */
+    private $residentId;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="num_of_years_spent", type="integer", nullable=true)
+     */
+    private $numOfYearsSpent;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ownership", type="string", length=127, nullable=false)
+     */
+    private $ownership;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="num_of_closes_schools", type="integer", nullable=true)
+     */
+    private $numOfClosesSchools;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="confirm", type="boolean", nullable=true)
+     */
+    private $confirm;
+
+    /**
+     * @var \Method
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Method")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="method_id", referencedColumnName="method_id")
+     * })
+     */
+    private $method;
+
+
+}
+

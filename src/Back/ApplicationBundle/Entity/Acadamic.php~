@@ -1,0 +1,57 @@
+<?php
+
+namespace Back\ApplicationBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Acadamic
+ *
+ * @ORM\Table(name="acadamic")
+ * @ORM\Entity
+ */
+class Acadamic
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="acadamic_id", type="integer", nullable=false)
+     */
+    private $acadamicId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exam", type="string", length=255, nullable=true)
+     */
+    private $exam;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="subject", type="string", length=31, nullable=true)
+     */
+    private $subject;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="result", type="string", length=7, nullable=false)
+     */
+    private $result;
+
+    /**
+     * @var \Achievement
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Achievement")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="achievement_id", referencedColumnName="achievement_id")
+     * })
+     */
+    private $achievement;
+
+
+}
+

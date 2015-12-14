@@ -1,0 +1,96 @@
+<?php
+
+namespace Back\ApplicationBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Applicant
+ *
+ * @ORM\Table(name="applicant")
+ * @ORM\Entity
+ */
+class Applicant
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="applicant_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $applicantId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name_in_full", type="string", length=255, nullable=false)
+     */
+    private $nameInFull;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name_with_initials", type="string", length=255, nullable=false)
+     */
+    private $nameWithInitials;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nic", type="string", length=15, nullable=false)
+     */
+    private $nic;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="religion", type="string", length=31, nullable=false)
+     */
+    private $religion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="address", type="string", length=255, nullable=false)
+     */
+    private $address;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="is_sri_lankan", type="boolean", nullable=false)
+     */
+    private $isSriLankan;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="district", type="string", length=31, nullable=false)
+     */
+    private $district;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="divisional_sec_area", type="string", length=63, nullable=false)
+     */
+    private $divisionalSecArea;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="grama_niladari_divi", type="string", length=63, nullable=false)
+     */
+    private $gramaNiladariDivi;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="telephone", type="string", length=15, nullable=true)
+     */
+    private $telephone;
+
+
+}
+

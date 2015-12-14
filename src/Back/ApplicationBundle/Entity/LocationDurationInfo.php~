@@ -1,0 +1,71 @@
+<?php
+
+namespace Back\ApplicationBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * LocationDurationInfo
+ *
+ * @ORM\Table(name="location_duration_info", indexes={@ORM\Index(name="has", columns={"child_id"})})
+ * @ORM\Entity
+ */
+class LocationDurationInfo
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="location_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $locationId;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="year", type="date", nullable=true)
+     */
+    private $year;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="grama_div", type="string", length=255, nullable=true)
+     */
+    private $gramaDiv;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="polling_div", type="string", length=255, nullable=true)
+     */
+    private $pollingDiv;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="polling_district", type="string", length=255, nullable=true)
+     */
+    private $pollingDistrict;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="confirm", type="boolean", nullable=true)
+     */
+    private $confirm;
+
+    /**
+     * @var \Child
+     *
+     * @ORM\ManyToOne(targetEntity="Child")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="child_id", referencedColumnName="child_id")
+     * })
+     */
+    private $child;
+
+
+}
+

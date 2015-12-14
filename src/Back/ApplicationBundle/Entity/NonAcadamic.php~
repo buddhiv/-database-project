@@ -1,0 +1,52 @@
+<?php
+
+namespace Back\ApplicationBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * NonAcadamic
+ *
+ * @ORM\Table(name="non acadamic", indexes={@ORM\Index(name="achievement_id", columns={"achievement_id"})})
+ * @ORM\Entity
+ */
+class NonAcadamic
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="non_acadamic_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $nonAcadamicId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="case", type="string", length=255, nullable=true)
+     */
+    private $case;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="place", type="integer", nullable=true)
+     */
+    private $place;
+
+    /**
+     * @var \Achievement
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Achievement")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="achievement_id", referencedColumnName="achievement_id")
+     * })
+     */
+    private $achievement;
+
+
+}
+

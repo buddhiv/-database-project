@@ -10,3 +10,8 @@
 #telephone:hover {
     background-color: whitesmoke;
 }
+
+#page-content{
+    background-color: white;
+    padding-top: 50px;
+}

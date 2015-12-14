@@ -1,0 +1,76 @@
+<?php
+
+namespace Back\ApplicationBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Teacher
+ *
+ * @ORM\Table(name="teacher")
+ * @ORM\Entity
+ */
+class Teacher
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="teacher_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $teacherId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="subject", type="string", length=255, nullable=false)
+     */
+    private $subject;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="address", type="string", length=255, nullable=false)
+     */
+    private $address;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name_in_full", type="string", length=255, nullable=true)
+     */
+    private $nameInFull;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="telephone", type="integer", nullable=false)
+     */
+    private $telephone;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="School", inversedBy="teacher")
+     * @ORM\JoinTable(name="teacher_school",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="teacher_id", referencedColumnName="teacher_id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="school_id", referencedColumnName="school_id")
+     *   }
+     * )
+     */
+    private $school;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->school = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}
+

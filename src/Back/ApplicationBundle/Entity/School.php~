@@ -1,0 +1,113 @@
+<?php
+
+namespace Back\ApplicationBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * School
+ *
+ * @ORM\Table(name="school")
+ * @ORM\Entity
+ */
+class School
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="school_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $schoolId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="address", type="string", length=255, nullable=true)
+     */
+    private $address;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="district", type="string", length=31, nullable=true)
+     */
+    private $district;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="divisional_sec_area", type="string", length=63, nullable=true)
+     */
+    private $divisionalSecArea;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="telephone", type="string", length=15, nullable=true)
+     */
+    private $telephone;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="category", type="string", length=31, nullable=false)
+     */
+    private $category;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="is_rural", type="integer", nullable=true)
+     */
+    private $isRural;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Child", inversedBy="school")
+     * @ORM\JoinTable(name="school_child",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="school_id", referencedColumnName="school_id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="child_id", referencedColumnName="child_id")
+     *   }
+     * )
+     */
+    private $child;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Student", mappedBy="school")
+     */
+    private $student;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Teacher", mappedBy="school")
+     */
+    private $teacher;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->child = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->student = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->teacher = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}
+

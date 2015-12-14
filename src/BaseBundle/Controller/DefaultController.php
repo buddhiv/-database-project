@@ -11,7 +11,7 @@ class DefaultController extends Controller
         return $this->render('BaseBundle:Default:main.html.twig', array('name' => $name));
     }
 
-    public function home_redirectAction()
+    public function homeRedirectAction()
     {
         return $this->redirectToRoute('home');
     }

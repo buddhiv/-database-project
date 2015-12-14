@@ -1,0 +1,50 @@
+<?php
+
+namespace Back\ApplicationBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Marks
+ *
+ * @ORM\Table(name="marks", indexes={@ORM\Index(name="graded_with", columns={"child_id"})})
+ * @ORM\Entity
+ */
+class Marks
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="mark_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $markId;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="case", type="integer", nullable=true)
+     */
+    private $case;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="marks", type="integer", nullable=true)
+     */
+    private $marks;
+
+    /**
+     * @var \Child
+     *
+     * @ORM\ManyToOne(targetEntity="Child")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="child_id", referencedColumnName="child_id")
+     * })
+     */
+    private $child;
+
+
+}
+
