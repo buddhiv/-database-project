@@ -314,24 +314,25 @@
             <section class="content-header" style="background-color: white">
                 <h1>
                     Add new Application
-                    <small>Grade 1 Student Registration Form</small>
+                    <small>Enter Your Details</small>
                 </h1>
-                <ol class="breadcrumb">
-                    <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
-                    <li class="active">Dashboard</li>
-                </ol>
             </section>
 
             {#Other components#}
-            <aside>
-                ASDK
-            </aside>
-
+            <section class="container" id="page-content" style="padding-top: 20px; background-color: white">
+                <div class="row">
+                    <section class="col-lg-10">
+                        {{ form_start(new_student_application) }}
+                        {{ form_widget(new_student_application) }}
+                        {{ form_end(new_student_application) }}
+                    </section>
+                </div>
+            </section>
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">
             <div class="pull-right hidden-xs">
-                <b>Version</b> 2.3.0
+                <b>Version</b> 1.0.0
             </div>
             Copyright &copy; 2015 Online Registrar | All rights reserved
         </footer>

@@ -10,6 +10,9 @@ namespace Back\ApplicationBundle\Controller;
 
 use Back\ApplicationBundle\Entity\Student;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class ApplicationController extends Controller
 {
@@ -17,12 +20,17 @@ class ApplicationController extends Controller
     {
         $student = new Student();
 
-        $new_student_aaplication = $this->createFormBuilder($student)->add()->getForm();
+        $new_student_application = $this->createFormBuilder($student)
+            ->add('child id', IntegerType::class)
+            ->add('name', TextType::class)
+            ->add('name with initials', TextType::class)
+            ->add('sex', IntegerType::class)
+            ->add('religion', TextType::class)
+            ->add('date of birth', DateType::class)
+            ->getForm();
 
         return $this->render('ApplicationBundle:Parent:main.html.twig', array(
-            'new_student_application' => $new_student_aaplication->createView()
+            'new_student_application' => $new_student_application->createView()
         ));
-
-//        return $this->render('ApplicationBundle:Parent:main.html.twig');
     }
 }
