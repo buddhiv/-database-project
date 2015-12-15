@@ -35,6 +35,10 @@ class DefaultController extends Controller
         $student_form->handleRequest($request);
 
         if($student_form->isSubmitted()){
+
+
+
+
             return $this->render('AppBundle:Default:success.html.twig');
         }
 

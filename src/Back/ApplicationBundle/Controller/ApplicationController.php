@@ -8,26 +8,46 @@
 
 namespace Back\ApplicationBundle\Controller;
 
-use Back\ApplicationBundle\Entity\Student;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class ApplicationController extends Controller
 {
     public function newApplicationAction()
     {
-        $student = new Student();
-
-        $new_student_application = $this->createFormBuilder($student)
-            ->add('child id', IntegerType::class)
-            ->add('name', TextType::class)
-            ->add('name with initials', TextType::class)
-            ->add('sex', IntegerType::class)
-            ->add('religion', TextType::class)
-            ->add('date of birth', DateType::class)
+        $new_student_application = $this->createFormBuilder()
+            ->add('childId', 'text')
+            ->add('nameInFull', 'text')
+            ->add('nameWithInitials', 'text')
+            ->add('religion', 'text')
+            ->add('sex', 'choice', array(
+                'choices' => array(
+                    'male' => 'male',
+                    'female' => 'female',
+                ), 'choices_as_values' => true
+            ))
+            ->add('medium', 'choice', array(
+                'choices' => array(
+                    'sinhala' => 'sinhala',
+                    'tamil' => 'tamil',
+                    'english' => 'english',
+                ), 'expanded' => true
+            ))
+            ->add('dateOfBirth', 'date', array(
+                'input' => 'datetime',
+                'widget' => 'choice',
+                'years' => range(date("Y") - 10, date("Y")),
+            ))
+            ->add('chooseApplicationCategory', 'choice', array(
+                'choices' => array(
+                    'yes' => 0,
+                    'no' => 1,
+                    'no' => 2,
+                    'no' => 3,
+                ), 'choices_as_values' => true
+            ))
+            ->add('submit', 'submit')
             ->getForm();
+
 
         return $this->render('ApplicationBundle:Parent:main.html.twig', array(
             'new_student_application' => $new_student_application->createView()
