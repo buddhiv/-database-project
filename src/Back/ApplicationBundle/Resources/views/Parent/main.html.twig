@@ -322,8 +322,23 @@
             <section class="container" id="page-content" style="padding-top: 20px; background-color: white">
                 <div class="row">
                     <section class="col-lg-10">
+                        Details of the Child
                         {{ form_start(new_student_application) }}
-                        {{ form_widget(new_student_application) }}
+                        {{ form_row(new_student_application.childId) }}
+                        {{ form_row(new_student_application.nameInFull) }}
+                        {{ form_row(new_student_application.nameWithInitials) }}
+                        {{ form_row(new_student_application.religion) }}
+                        {{ form_row(new_student_application.sex) }}
+                        {{ form_row(new_student_application.medium) }}
+                        {{ form_row(new_student_application.dateOfBirth) }}
+
+                        <br/><br/>
+                        Details of the Applicant
+
+
+
+                        {{ form_row(new_student_application.chooseApplicationCategory) }}
+                        {{ form_row(new_student_application.submit) }}
                         {{ form_end(new_student_application) }}
                     </section>
                 </div>

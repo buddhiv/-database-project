@@ -23,19 +23,33 @@ class ApplicationController extends Controller
                 'choices' => array(
                     'male' => 'male',
                     'female' => 'female',
-                ), 'choices_as_values' => true
+                ),
+                'choices_as_values' => true,
             ))
             ->add('medium', 'choice', array(
                 'choices' => array(
                     'sinhala' => 'sinhala',
                     'tamil' => 'tamil',
                     'english' => 'english',
-                ), 'expanded' => true
+                ),
+                'expanded' => true,
+                'data' => 'sinhala',
             ))
             ->add('dateOfBirth', 'date', array(
                 'input' => 'datetime',
                 'widget' => 'choice',
                 'years' => range(date("Y") - 10, date("Y")),
+            ))
+            ->add('nameInFull', 'text')
+            ->add('nameWithInitials', 'text')
+            ->add('NationalIdentityCardNumber', 'text')
+            ->add('isApplicantSriLankan', 'choice', array(
+                'choices' => array(
+                    1 => 'yes',
+                    0 => 'no',
+                ),
+                'expanded' => true,
+                'data' => 1,
             ))
             ->add('chooseApplicationCategory', 'choice', array(
                 'choices' => array(
@@ -43,8 +57,15 @@ class ApplicationController extends Controller
                     'no' => 1,
                     'no' => 2,
                     'no' => 3,
-                ), 'choices_as_values' => true
+                ),
+                'choices_as_values' => true,
             ))
+            ->add('religion', 'text')
+            ->add('permanentAddress', 'text')
+            ->add('Telephone', 'text')
+            ->add('ResidentialDistrict', 'text')
+            ->add('DivisionalSecretaryArea', 'text')
+            ->add('GrameNiladhariDivision', 'text')
             ->add('submit', 'submit')
             ->getForm();
 
